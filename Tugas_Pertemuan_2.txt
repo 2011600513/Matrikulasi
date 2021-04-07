@@ -5,7 +5,6 @@ Seseorang berangkat pukul  08 : 52 : 45
 Susun program untuk menghitung dan mencetak pukul berapa 
 ( jam : menit : detik ) dia tiba ditempat tujuan.
 
-
 Listing Program
 =======================
 #include<stdio.h>
@@ -44,4 +43,52 @@ detik_akhir= detik_akhir - (60*menit);
     printf("\n Jam   : %d \n Menit : %d \n Detik : %d ",jam,menit,detik_akhir);
 getch();
 return 0;
+}
+
+Soal No.2
+============
+Seseorang berangkat pukul  08 : 52 : 45 
+( pukul 08 lewat 52 menit 45 detik ) , dan tiba ditujuan pukul : 12 : 15 : 10. 
+Susun program untuk menghitung dan mencetak berapa jam, berapa menit dan berapa detik waktu yang dia habiskan dalam perjalanan.
+
+
+Listing Program
+=======================
+#include <stdio.h>
+int main()
+{
+    int jam_berangkat;
+    int menit_berangkat=60;
+    int detik_berangkat;
+    int detik_datang;
+    int jam_datang;
+    int menit_datang=60;
+    int durasi=60;
+    int selisih_detik;
+    //int convert_detik;
+    //int nilai_detik;
+        printf("Jam berangkat : ");scanf("%d", &jam_berangkat);
+        printf("menit berangkat : ");scanf("%d", &menit_berangkat);
+        printf("Detik berangkat : ");scanf("%d", &detik_berangkat);
+        printf("\nJam datang : ");scanf("%d", &jam_datang);
+        printf("Menit datang : ");scanf("%d", &menit_datang);
+        printf("Detik datang : ");scanf("%d", &detik_datang);
+        printf("\n\n");
+// pengecekan format waktu, jika menit berangkat/datang lebih dari sama dengan 60 maka akan muncul pesan format salah
+
+    if(menit_berangkat>=60 || menit_datang>=60)
+        printf("format waktu salah, silahkan ulangi lagi.");
+    else{
+
+// Jika validasi berhasil makan proses lanjut, 
+        if(jam_datang < jam_berangkat)
+        {
+            jam_datang+=24;
+        }
+                durasi=(jam_datang-jam_berangkat)*60 + menit_datang - menit_berangkat;
+                selisih_detik= detik_datang-detik_berangkat;
+           // convert_detik=nilai_detik/60;
+        printf("Durasi : %d jam %d menit %d detik\n", durasi/60, durasi%60, selisih_detik*-1);
+    }
+    return 0;
 }
