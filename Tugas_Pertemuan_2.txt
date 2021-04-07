@@ -1,0 +1,37 @@
+#include<stdio.h>
+int main ()
+{
+    typedef struct
+{
+    long int hh;
+    long int mm;
+    long int ss;
+} Jam;
+Jam J;
+long int total_detik;
+int detik_akhir;
+int sec,jam,menit;
+printf("Masukan Waktu Keberangkatan\n");
+printf("Jam = ");
+scanf("%d",&J.hh);
+printf("Menit = ");
+scanf("%d",&J.mm);
+printf("Detik = ");
+scanf("%d",&J.ss);
+
+total_detik = (J.hh*3600)+(J.mm*60)+(J.ss);
+
+    printf("Masukan Durasi Perjalan (detik) : "); scanf("%d",&sec);
+ 
+detik_akhir =  sec + total_detik;
+
+jam=detik_akhir / (60*60);
+detik_akhir= detik_akhir-((60*60)*jam);
+menit=detik_akhir / 60;
+detik_akhir= detik_akhir - (60*menit);
+    printf("\n===============================================");
+    printf("\nmaka waktu tujuan adalah :  ");
+    printf("\n Jam   : %d \n Menit : %d \n Detik : %d ",jam,menit,detik_akhir);
+getch();
+return 0;
+}
